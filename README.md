@@ -1,8 +1,8 @@
 # E-Commerce-RESTful-API
 
-🚀 Welcome to the eCommerce Express API!
+🚀 Welcome to my eCommerce Express API!
 
-Build a powerful eCommerce backend with our JavaScript and Express.js RESTful API. This repo includes:
+Build a powerful eCommerce backend with my JavaScript and Express.js RESTful API. This repo includes:
 
 🛒 Cart Operations: Add, update, and remove items effortlessly.
 📦 Product Management: CRUD functionalities for a dynamic product catalog.
