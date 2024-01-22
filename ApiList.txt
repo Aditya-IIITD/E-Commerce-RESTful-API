@@ -1,0 +1,16 @@
+{ Product APIs }
+
+Get  - done
+Add a Product - done
+Get one Product - done
+Rate Product - done
+Filter  - done
+
+Rate a Product - done
+Add products to cart - done
+get products from cart - done
+Remove products from cart - done
+
+userController
+signup - Email,name,pass,typeofuser(customer,seller) - Done
+signin  - email ,pass - Done
