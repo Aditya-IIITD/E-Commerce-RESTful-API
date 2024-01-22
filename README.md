@@ -8,7 +8,7 @@ Build a powerful eCommerce backend with our JavaScript and Express.js RESTful AP
 📦 Product Management: CRUD functionalities for a dynamic product catalog.
 🔐 User Authentication: Secure your platform with JWT.
 
-#🚀 #Key Features:
+🚀 Key Features:
 
 Express.js for robust API handling.
 JWT for secure user authorization.
