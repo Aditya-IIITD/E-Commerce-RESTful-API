@@ -1,23 +1,39 @@
 import ProductModel from "./product.model.js";
+import ProductRepository from "./product.respository.js";
 
 export default class ProductController {
-  getAllProducts(req, res) {
-    const products = ProductModel.getAll();
-    res.status(200).send(products);
+  constructor() {
+    this.productRespository = new ProductRepository();
   }
 
-  addProduct(req, res) {
-    const { name, price, sizes } = req.body;
-    const newProduct = {
-      name,
-      price: parseFloat(price),
-      sizes: sizes.split(","),
-      imageUrl: req.file.filename,
-    };
+  async getAllProducts(req, res) {
+    try {
+      const products = await this.productRespository.getAll();
+      res.status(200).send(products);
+    } catch (err) {
+      console.log(err);
+      throw new Error("Something went wrong with DB");
+    }
+  }
 
-    console.log(newProduct);
-    const createdRecord = ProductModel.add(newProduct);
-    res.status(201).send(createdRecord);
+  async addProduct(req, res) {
+    try {
+      const { name, price, sizes } = req.body;
+      const newProduct = new ProductModel(
+        name,
+        null,
+        parseFloat(price),
+        req.file.filename,
+        null,
+        sizes.split(",")
+      );
+
+      const createdRecord = await this.productRespository.add(newProduct);
+      res.status(201).send(createdRecord);
+    } catch (err) {
+      console.log(err);
+      throw new Error("Something went wrong with DB");
+    }
   }
 
   rateProduct(req, res, next) {
@@ -32,12 +48,17 @@ export default class ProductController {
     }
   }
 
-  getOneProduct(req, res) {
-    const product = ProductModel.get(req.params.id);
-    if (!product) {
-      res.status(404).send("Product not found");
-    } else {
-      res.status(200).send(product);
+  async getOneProduct(req, res) {
+    try {
+      const product = await this.productRespository.get(req.params.id);
+      if (!product) {
+        res.status(404).send("Product not found");
+      } else {
+        res.status(200).send(product);
+      }
+    } catch (err) {
+      console.log(err);
+      throw new Error("Something went wrong with DB");
     }
   }
 
