@@ -17,6 +17,7 @@ export default class ProductController {
   }
 
   async addProduct(req, res) {
+    console.log("in add");
     try {
       const { name, price, sizes } = req.body;
       const newProduct = new ProductModel(
@@ -27,7 +28,7 @@ export default class ProductController {
         null,
         sizes.split(",")
       );
-
+      console.log(newProduct);
       const createdRecord = await this.productRespository.add(newProduct);
       res.status(201).send(createdRecord);
     } catch (err) {
@@ -36,15 +37,16 @@ export default class ProductController {
     }
   }
 
-  rateProduct(req, res, next) {
-    const userId = req.query.userId;
-    const productId = req.query.productId;
-    const rating = req.query.rating;
+  async rateProduct(req, res) {
+    const userId = req.userId;
+    const productId = req.body.productId;
+    const rating = req.body.rating;
     try {
-      ProductModel.rateProduct(userId, productId, rating);
+      await this.productRespository.rate(userId, productId, rating);
       return res.status(200).send("rating has been added");
     } catch (error) {
-      next(error);
+      console.log(err);
+      throw new Error("Something went wrong with DB");
     }
   }
 
@@ -62,11 +64,16 @@ export default class ProductController {
     }
   }
 
-  filterProducts(req, res) {
-    const minp = req.query.minprice;
-    const maxp = req.query.maxprice;
-    const category = req.query.category;
-    const result = ProductModel.filter(minp, maxp, category);
-    res.status(200).send(result);
+  async filterProducts(req, res) {
+    try {
+      const minp = req.query.minprice;
+      const maxp = req.query.maxprice;
+      const category = req.query.category;
+      const result = await this.productRespository.filter(minp, maxp, category);
+      res.status(200).send(result);
+    } catch (err) {
+      console.log(err);
+      throw new Error("Something went wrong with DB");
+    }
   }
 }
