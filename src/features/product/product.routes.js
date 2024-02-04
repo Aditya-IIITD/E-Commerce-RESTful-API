@@ -16,6 +16,11 @@ productRouter.post("/", uploadFile.single("imageUrl"), (req, res) => {
   console.log("route add");
   productController.addProduct(req, res);
 });
+
+productRouter.get("/averagePrice", (req, res, next) => {
+  productController.averagePrice(req, res, next);
+});
+
 productRouter.get("/:id", (req, res) => {
   productController.getOneProduct(req, res);
 });

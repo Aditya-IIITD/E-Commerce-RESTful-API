@@ -76,4 +76,14 @@ export default class ProductController {
       throw new Error("Something went wrong with DB");
     }
   }
+
+  async averagePrice(req, res, next) {
+    try {
+      const result = await this.productRespository.averagePricePerCategory();
+      res.status(200).send(result);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send("Something went wrong");
+    }
+  }
 }
