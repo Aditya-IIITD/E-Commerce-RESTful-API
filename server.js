@@ -12,6 +12,7 @@ import loggerMiddleware from "./src/middlewares/logger.middleware.js";
 import { ApplicationError } from "./src/middlewares/ApplicationError.middleware.js";
 import { connectToMongodb } from "./src/config/mongodb.js";
 import dotenv from "dotenv";
+import orderRouter from "./src/features/order/order.routes.js";
 
 const server = express();
 dotenv.config();
@@ -28,6 +29,7 @@ server.use(loggerMiddleware);
 server.use("/api/users", userRouter);
 server.use("/api/products", jwtAuthorizer, productRouter);
 server.use("/api/cartItems", jwtAuthorizer, cartRouter);
+server.use("/api/orders", jwtAuthorizer, orderRouter);
 
 server.get("/", (req, res) => {
   res.status(200).send("Welcome to Ecommerce API");
