@@ -6,7 +6,7 @@ let client;
 export const connectToMongodb = () => {
   MongoClient.connect(url)
     .then((clientInstance) => {
-      client = clientInstance.db();
+      client = clientInstance;
       console.log("Mongodb is connected...");
       createCounter(clientInstance.db());
       createIndex(clientInstance.db());
@@ -16,8 +16,12 @@ export const connectToMongodb = () => {
     });
 };
 
-const getDB = () => {
+export const getClient = () => {
   return client;
+};
+
+const getDB = () => {
+  return client.db();
 };
 
 const createCounter = async (db) => {
