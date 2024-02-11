@@ -13,6 +13,7 @@ import { ApplicationError } from "./src/middlewares/ApplicationError.middleware.
 import { connectToMongodb } from "./src/config/mongodb.js";
 import dotenv from "dotenv";
 import orderRouter from "./src/features/order/order.routes.js";
+import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
 
 const server = express();
 dotenv.config();
@@ -53,5 +54,6 @@ server.use((req, res) => {
 
 server.listen(3000, () => {
   console.log("Server is listening at 3000...");
-  connectToMongodb();
+  // connectToMongodb();
+  connectUsingMongoose();
 });
