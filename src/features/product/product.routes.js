@@ -1,4 +1,4 @@
-import express from "express";
+/import express from "express";
 import ProductController from "./product.controller.js";
 import { uploadFile } from "../../middlewares/fileupload.middleware.js";
 

@@ -126,3 +126,20 @@
 {"level":"info","message":"/api/orders -  {}","service":"requesting-logging"}
 {"level":"info","message":"/api/cartItems -  {\"productId\":\"65bcd43037ff6d5c6a41e11b\",\"quantity\":\"10\"}","service":"requesting-logging"}
 {"level":"info","message":"/api/orders -  {}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"type\":\"seller\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"type\":\"seller\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"type\":\"seller\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"type\":\"seller\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"type\":\"seller\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"type\":\"seller\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"type\":\"seller\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pika@ecom.com\",\"password\":\"password2\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/resetpassword -  {\"newPassword\":\"johndoe\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/resetpassword -  {\"newPassword\":\"johndoe\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pikachu@ecom.com\",\"password\":\"pass2\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pikachu@ecom.com\",\"password\":\"pass2\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pikachu@ecom.com\",\"password\":\"pass2\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pikachu@ecom.com\",\"password\":\"pass2\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pikachu@ecom.com\",\"password\":\"pass2\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pikachu@ecom.com\",\"password\":\"pass2\",\"name\":\"Seller user3\"}","service":"requesting-logging"}
+{"level":"info","message":"/api/users/signup -  {\"email\":\"pikachu@ecom.com\",\"password\":\"pass2A@df\",\"name\":\"Seller user3\"}","service":"requesting-logging"}

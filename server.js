@@ -1,6 +1,7 @@
 import "./env.js";
 import express from "express";
 import swagger from "swagger-ui-express";
+import mongoose from "mongoose";
 
 import productRouter from "./src/features/product/product.routes.js";
 import userRouter from "./src/features/user/user.routes.js";
@@ -37,6 +38,9 @@ server.get("/", (req, res) => {
 });
 
 server.use((err, req, res, next) => {
+  if (err instanceof mongoose.Error.ValidationError) {
+    res.status(400).send(err.message);
+  }
   if (err instanceof ApplicationError) {
     res.status(err.code).send(err.message);
   } else {

@@ -1,6 +1,7 @@
 import { UserModel } from "./user.model.js";
 import jwt from "jsonwebtoken";
-import { UserRepository } from "./user.reposiitory.js";
+import { UserRepository } from "./user.repository.js";
+import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 export class UserController {
@@ -8,16 +9,28 @@ export class UserController {
     this.userRepository = new UserRepository();
   }
 
-  async signUp(req, res) {
-    const { name, email, password, type } = req.body;
+  async resetPassword(req, res) {
+    const { newPassword } = req.body;
+    const hashedPassword = await bcrypt.hash(newPassword, 12);
+    const userId = req.userId;
     try {
-      const hashedPassword = await bcrypt.hash(password, 12);
-      const newuser = new UserModel(name, email, hashedPassword, type);
-      const user = await this.userRepository.signup(newuser);
-      res.status(201).send(newuser);
+      await this.userRepository.resetPassword(userId, hashedPassword);
+      res.status(200).send("password resets successfully");
     } catch (err) {
       console.log(err);
       throw new Error("Something went wrong with DB");
+    }
+  }
+
+  async signUp(req, res, next) {
+    const { name, email, password, type } = req.body;
+    try {
+      // const hashedPassword = await bcrypt.hash(password, 12);
+      const newuser = new UserModel(name, email, password, type);
+      const user = await this.userRepository.signup(newuser);
+      res.status(201).send(newuser);
+    } catch (err) {
+      next(err);
     }
   }
 
